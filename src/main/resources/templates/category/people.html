@@ -50,14 +50,20 @@
 				<div class="divider-custom-icon"><i class="fa-solid fa-jedi"></i></div>
 				<div class="divider-custom-line"></div>
 			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4 mb-5" th:each="people : ${results}">
-				<a th:href="@{/people/{id} (id = ${people.url})}">
-					<div class="portfolio-item mx-auto">
-						<p th:text="${people.name}"> Hola</p>
-					</div>
+			<div class="row justify-content-center row-cols-5" >
+				<div class="col" th:each="people : ${results}">
+					<a th:href="@{/detail/people/{id} (id = ${people.url})}">
+						<div class="portfolio-item mx-auto">
+							<p th:text="${people.name}"> Hola</p>
+						</div>
+					</a>
 				</div>
-				</a>
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination">
+				    <li class="page-item"><a class="page-link" th:href="@{/people?pagination={previous} (previous = ${previous})}">Previous</a></li>
+				    <li class="page-item"><a class="page-link" th:href="@{/people?pagination={next} (next = ${next})}">Next</a></li>
+				  </ul>
+				</nav>
 			</div>
 		</div>
 	</section>

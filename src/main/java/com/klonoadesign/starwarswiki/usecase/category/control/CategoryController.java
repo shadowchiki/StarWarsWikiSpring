@@ -24,7 +24,7 @@ public class CategoryController {
 		Items items = service.getCategoryInfo(category, pagination);
 		
 		model.addAttribute("count", items.getNext());
-		model.addAttribute("previus", items.getPrevious());
+		model.addAttribute("previous", items.getPrevious());
 		model.addAttribute("next", items.getNext());
 		model.addAttribute("results", items.getResults());
 		

@@ -16,10 +16,8 @@ public class CategoryServiceImpl implements CategoryService{
 	public Items getCategoryInfo(String category, String pagination) {
 		
 		ObtainUrl obtainUrl = new ObtainUrl();
-		
-		String url = obtainUrl.getCategory(category);
-		
-		ResponseEntity<Items> response = new RestTemplate().getForEntity(url, Items.class);
+				
+		ResponseEntity<Items> response = new RestTemplate().getForEntity(obtainUrl.getCategory(category, pagination), Items.class);
 		
 		Items items = response.getBody();
 		

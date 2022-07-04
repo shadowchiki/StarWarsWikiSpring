@@ -44,18 +44,28 @@
 	</nav>
 	<section class="page-section portfolio" id="portfolio" style="margin-top: 5%;">
 		<div class="container">
-			<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Personajes</h2>
+			<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Planetas</h2>
 			<div class="divider-custom">
 				<div class="divider-custom-line"></div>
 				<div class="divider-custom-icon"><i class="fa-solid fa-jedi"></i></div>
 				<div class="divider-custom-line"></div>
 			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4 mb-5" th:each="people : ${results}">
-					<div class="portfolio-item mx-auto">
-						<p th:text="${people.name}"> Hola</p>
-					</div>
+			<div class="row justify-content-center row-cols-5" >
+				<div class="col" th:each="planet : ${results}">
+					<a th:href="@{/detail/planets/{id} (id = ${planet.url})}">
+						<div class="portfolio-item mx-auto">
+							<p th:text="${planet.name}"> Hola</p>
+						</div>
+					</a>
 				</div>
+				
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination">
+				    <li class="page-item"><a class="page-link" th:href="@{/planets?pagination={previous} (previous = ${previous})}">Previous</a></li>
+				    <li class="page-item"><a class="page-link" th:href="@{/planets?pagination={next} (next = ${next})}">Next</a></li>
+				  </ul>
+				</nav>
+				
 			</div>
 		</div>
 	</section>

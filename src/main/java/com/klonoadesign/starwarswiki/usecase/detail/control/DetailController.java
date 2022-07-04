@@ -15,7 +15,7 @@ public class DetailController {
 	@Autowired
 	private DetailService service;
 	
-	@GetMapping("/{category}/{id}")
+	@GetMapping("/detail/{category}/{id}")
 	public String getDetail(@PathVariable("category") String category,
 			@PathVariable("id") String id,
 			Model model) {
